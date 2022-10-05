@@ -8,14 +8,14 @@ I have the component _Expenses_ inside my js file and I have an array of data. I
 
 Inside my Expenses.js which is my component file, I will use the data using props, like this:
 
-function Expenses(props) {
+`function Expenses(props) {
 return (
 
 <div>
 <h1>{props.items[0].title}</h1>
 <h2>{props.items[0].description}</h2>
 </div>
-)}
+)}`
 
 ## useState()
 
