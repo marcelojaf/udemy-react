@@ -81,3 +81,17 @@ function dateChangeHandler(event) {
 }
 
 ```
+
+## Modal
+
+For using modals, check the **user-list-app** to see how it is done.
+
+We need to create two divs inside public/index.html for `backdrop-root` and `overlay-root`. This is better for screenreaders and make the app organized.
+
+## Fragments
+
+When returning a JSX, you need to return only one root component. Instead of wrapping everything in a `<div>`, use <Fragment> so you will not have nested divs
+
+## useRef()
+
+To get values from a DOM component, use `useRef()` instead of `useState()` for each component. It makes the code cleaner
