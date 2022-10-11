@@ -95,3 +95,15 @@ When returning a JSX, you need to return only one root component. Instead of wra
 ## useRef()
 
 To get values from a DOM component, use `useRef()` instead of `useState()` for each component. It makes the code cleaner
+
+## useEffect()
+
+Sintax:
+
+```
+useEffect(() => {
+  // do something
+}, [dependencies]);
+```
+
+When the page is loaded, the code inside an `effect` will run once. Then, this same code will run again only if the dependencies change.
