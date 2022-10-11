@@ -107,3 +107,39 @@ useEffect(() => {
 ```
 
 When the page is loaded, the code inside an `effect` will run once. Then, this same code will run again only if the dependencies change.
+
+## useReducer()
+
+Sintax:
+
+```
+const [emailState, dispatchEmail] = useReducer(emailReducer, {
+    value: "",
+    isValid: null,
+  });
+```
+
+With `emailReducer` being a function:
+
+```
+function emailReducer(state, action) {
+    if (action.type === "USER_INPUT") {
+      return { value: action.val, isValid: action.val.includes("@") };
+    }
+    if (action.type === "INPUT_BLUR") {
+      return { value: state.value, isValid: state.value.includes("@") };
+    }
+    return { value: "", isValid: false };
+  }
+```
+
+The `dispatch` would be something like:
+
+```
+dispatchEmail({
+      type: "USER_INPUT",
+      val: event.target.value,
+    });
+```
+
+When to use: **When updating a `state` that depends on another `state`**
