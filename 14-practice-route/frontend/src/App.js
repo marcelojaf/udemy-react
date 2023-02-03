@@ -6,10 +6,12 @@ import EventDetail, {
   loader as eventDetailLoader,
   action as deleteEventAction,
 } from "./pages/EventDetail";
-import NewEventPage, { action as newEventAction } from "./pages/NewEvent";
+import NewEventPage from "./pages/NewEvent";
 import EditEvent from "./pages/EditEvent";
 import EventsRootLayout from "./pages/EventsRoot";
 import ErrorPage from "./pages/Error";
+import NewsletterPage, { action as newsletterAction } from "./pages/Newsletter";
+import { action as manipulateEventAction } from "./components/EventForm";
 
 // Challenge / Exercise
 
@@ -59,11 +61,24 @@ const router = createBrowserRouter([
                 element: <EventDetail />,
                 action: deleteEventAction,
               },
-              { path: "edit", element: <EditEvent /> },
+              {
+                path: "edit",
+                element: <EditEvent />,
+                action: manipulateEventAction,
+              },
             ],
           },
-          { path: "new", element: <NewEventPage />, action: newEventAction },
+          {
+            path: "new",
+            element: <NewEventPage />,
+            action: manipulateEventAction,
+          },
         ],
+      },
+      {
+        path: "newsletter",
+        element: <NewsletterPage />,
+        action: newsletterAction,
       },
     ],
   },
