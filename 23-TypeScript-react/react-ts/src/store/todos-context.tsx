@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactNode, createContext, useState } from "react";
 
 import Todo from "../models/todo";
 
@@ -8,13 +8,15 @@ type TodosContextObj = {
   removeTodo: (id: string) => void;
 };
 
-export const TodosContext = React.createContext<TodosContextObj>({
+export const TodosContext = createContext<TodosContextObj>({
   items: [],
   addTodo: () => {},
   removeTodo: (id: string) => {},
 });
 
-const TodosContextProvider: React.FC = (props) => {
+const TodosContextProvider: React.FC<{ children: ReactNode }> = (
+  props: any
+) => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const addTodoHandler = (todoText: string) => {
